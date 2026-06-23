@@ -3,7 +3,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerMove : MonoBehaviour
 {
+    public static PlayerMove Instance;
     [SerializeField] private float PlayerSpeed;
+    public SpriteRenderer backgroundSprite;
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,9 +46,16 @@ public class PlayerMove : MonoBehaviour
                 y = -1f;
             }
         }
-        float Angle_Direction = Mathf.Atan2(y, x) * Mathf.Rad2Deg; // Ham tinh goc quay. Atan2 tra ve radian, goc trong Unity dung don vi do
-        Quaternion targetAngle = Quaternion.Euler(0, 0, Angle_Direction - 90f); // Goc thi phai setting lai tu dau
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetAngle, Time.deltaTime * PlayerSpeed);
         transform.position += new Vector3(x * PlayerSpeed * Time.deltaTime, y * PlayerSpeed * Time.deltaTime, 0);
+    }
+    private void LateUpdate()
+    {
+        if (backgroundSprite == null) return;
+        Bounds bgBounds = backgroundSprite.bounds;
+        Vector3 playerExtents = GetComponent<SpriteRenderer>().bounds.extents;
+        Vector3 correctPosition = transform.position;
+        correctPosition.x = Mathf.Clamp(correctPosition.x, bgBounds.min.x + playerExtents.x, bgBounds.max.x - playerExtents.x);
+        correctPosition.y = Mathf.Clamp(correctPosition.y, bgBounds.min.y + playerExtents.y, bgBounds.max.y - playerExtents.y);
+        transform.position = correctPosition;
     }
 }

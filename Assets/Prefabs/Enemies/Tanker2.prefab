@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1539584217246380676}
   - component: {fileID: 2681818987000642360}
   - component: {fileID: 1164978446172755370}
+  - component: {fileID: -4413182150617760312}
   m_Layer: 0
   m_Name: Tanker2
   m_TagString: Untagged
@@ -149,7 +150,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -165,3 +166,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.6257092, y: 1.225}
   m_EdgeRadius: 0
+--- !u!114 &-4413182150617760312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8773751682336316754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a898b2c656aa1d243a9568e98090add7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tanker
+  EnemySpeed: 3
+  EnemyScore: 2

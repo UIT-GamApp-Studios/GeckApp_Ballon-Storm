@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8820976301903238451}
   - component: {fileID: 5940114908193496812}
   - component: {fileID: 6528693827099062108}
+  - component: {fileID: -4383202953295747254}
   m_Layer: 0
   m_Name: Horse2
   m_TagString: Untagged
@@ -149,7 +150,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -165,3 +166,17 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.95335114, y: 1.22}
   m_EdgeRadius: 0
+--- !u!114 &-4383202953295747254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872699837428272886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeabf2b9a902abc48a0e6c86e27c33db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Horse
+  EnemySpeed: 6
+  EnemyScore: 3

@@ -22,6 +22,7 @@ public class BaseBullet : MonoBehaviour
         if (enemy != null)
         {
             enemy.Die();
+            Destroy(gameObject);
         }
     }
     private IEnumerator SelfDestroy()
