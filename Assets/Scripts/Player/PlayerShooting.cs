@@ -7,6 +7,8 @@ public class PlayerShooting : MonoBehaviour
     private float CurrentShootingType;
     private bool isInCooldown;
     [SerializeField] private float Cooldown;
+    [Header("Animator")]
+    public Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,7 +21,7 @@ public class PlayerShooting : MonoBehaviour
         Keyboard currentKeyboard = Keyboard.current;
         if (currentKeyboard != null)
         {
-            if (currentKeyboard.spaceKey.isPressed)
+            if (currentKeyboard.spaceKey.wasPressedThisFrame)
             {
                 if (!isInCooldown) StartCoroutine(DoShoot());
             }
@@ -37,6 +39,7 @@ public class PlayerShooting : MonoBehaviour
     }
     private IEnumerator DoShoot()
     {
+        isInCooldown = true;
         BaseShootingType[] shootingTypes = GetComponents<BaseShootingType>();
         if (shootingTypes.Length > 0)
         {
@@ -44,12 +47,13 @@ public class PlayerShooting : MonoBehaviour
             {
                 if (shootingType.ShootingID == CurrentShootingType)
                 {
+                    animator.SetTrigger("Attack");
+                    yield return new WaitForSeconds(0.1f);
                     shootingType.StartCoroutine(shootingType.Shoot());
                     break;
                 }
             }
         }
-        isInCooldown = true;
         yield return new WaitForSeconds(Cooldown);
         isInCooldown = false;
     }

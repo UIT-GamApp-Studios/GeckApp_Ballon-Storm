@@ -7,7 +7,7 @@ public class ShootingType1 : BaseShootingType
     {
         for (int i = 1; i <= 3; i++)
         {
-            Instantiate(Bullet, HeadGun.transform.position, transform.rotation);
+            Instantiate(Bullet, HeadGun.transform.position, transform.rotation * Quaternion.Euler(0, 0, -90f));
             yield return new WaitForSeconds(0.15f);
         }
     }
