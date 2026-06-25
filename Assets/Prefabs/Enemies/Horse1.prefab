@@ -178,5 +178,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeabf2b9a902abc48a0e6c86e27c33db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Horse
-  EnemySpeed: 7
+  EnemySpeed: 4
   EnemyScore: 4
