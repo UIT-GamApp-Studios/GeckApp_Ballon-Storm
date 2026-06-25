@@ -180,3 +180,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Tanker
   EnemySpeed: 2
   EnemyScore: 1
+  deathEffectPrefab: {fileID: 291008686751335879, guid: a29e533c513ef42ea875dcc64066970b, type: 3}

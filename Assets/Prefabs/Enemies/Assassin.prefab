@@ -180,3 +180,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Assassin
   EnemySpeed: 5.5
   EnemyScore: 5
+  deathEffectPrefab: {fileID: 291008686751335879, guid: a29e533c513ef42ea875dcc64066970b, type: 3}
